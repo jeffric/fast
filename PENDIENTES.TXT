@@ -1,0 +1,6 @@
+- Creacion, Modificacion y elminacion de Usuarios (nombre, password, tipo de usuario, telefono, mail, etc) [IMPORTANTE]
+- Login [IMPORTANTE]
+- creacion, modificacion y eliminacion de amenazas, planes de mitigacion y planes de prevencion.
+- paginas para elegir amenazas, pagina de evaluar, pagina de eleccion de planes de mitigacion y prevencion
+- pagina de reporte.
+
