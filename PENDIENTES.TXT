@@ -3,4 +3,4 @@
 - creacion, modificacion y eliminacion de amenazas, planes de mitigacion y planes de prevencion.
 - paginas para elegir amenazas, pagina de evaluar, pagina de eleccion de planes de mitigacion y prevencion
 - pagina de reporte.
-j
+ja
