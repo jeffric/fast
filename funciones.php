@@ -622,10 +622,12 @@
 		<!-- Estilos para menu  
 		<link type="text/css" rel="stylesheet" href="css/menu/demo.css" />
 		<link type="text/css" rel="stylesheet" href="css/menu/jquery.mmenu.all.css" /> -->
+		<link type="text/css" rel="stylesheet" href="js/calendario_dw/calendario_dw-estilos.css">
 
 		<!-- Scripts -->
 		<script src="js/jquery-2.1.1.js"></script>
 		<script src="js/jquery.mobile-1.4.4.min.js"></script>
+		<script type="text/javascript" src="js/calendario_dw/calendario_dw.js"></script>
 
 		<!-- libreria para alertas 
 		<script src="js/sweet-alert.js"></script>
@@ -1220,10 +1222,12 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 	<link type="text/css" rel="stylesheet" href="../css/menu/demo.css" /> -->
 
 	<link type="text/css" rel="stylesheet" href="../css/menu/jquery.mmenu.all.css" />
+	<link type="text/css" rel="stylesheet" href="../js/calendario_dw/calendario_dw-estilos.css">
 
 	<!-- Scripts -->
 	<script src="../js/jquery-2.1.1.js"></script>		
 <script src="../js/jquery.mobile-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/calendario_dw/calendario_dw.js"></script>
 
 <!-- libreria para alertas -->
 <script src="../js/sweet-alert.js"></script>
@@ -1969,7 +1973,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				$nombreAmenaza = trim($variable," \t\n\r\0\x0B");
 				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM AMENAZA WHERE nombre='$nombreAmenaza'");
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-					if(strcasecmp($row[0],$nombreAmenaza)==0){
+					if(strcasecmp(str_replace("'","''",$row[0]),$nombreAmenaza)==0){
 
 						return true;
 					}
@@ -2275,7 +2279,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				$nombreMitigacion=trim($variable," \t\n\r\0\x0B");
 				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM MITIGACION WHERE nombre='$nombreMitigacion'");
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-					if(strcasecmp($row[0],$nombreMitigacion)==0){
+					if(strcasecmp(str_replace("'","''",$row[0]),$nombreMitigacion)==0){
 
 						return true;
 					}
@@ -2370,7 +2374,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				$nombrePrevencion=trim($variable," \t\n\r\0\x0B");
 				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PREVENCION WHERE nombre='$nombrePrevencion'");
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-					if(strcasecmp($row[0],$nombrePrevencion)==0){
+					if(strcasecmp(str_replace("'","''",$row[0]),$nombrePrevencion)==0){
 
 						return true;
 					}
@@ -2390,7 +2394,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				$nombrePlan = trim($variable," \t\n\r\0\x0B");
 				$result = $this->db->ExecutePersonalizado("SELECT nombre FROM PREVENCION WHERE nombre='$nombrePlan'  AND idPREVENCION !='$idPlan'");
 				while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
-								if(strcasecmp($row[0],$nombrePlan)==0){
+								if(strcasecmp(str_replace("'","''",$row[0]),$nombrePlan)==0){
 
 						return true;
 					}
@@ -2751,9 +2755,27 @@ function insertarReporteHissCam($NombreDepartamento,
 		}
 	}
 
-	 function getReportesCsrPtos(){
+	 function getReportesCsrPtos($strTipoUsuario,$idUsuario){
 	 	try {
-	 		$result = $this->db->ExecutePersonalizado("SELECT * FROM resultado_csr where idPUNTO_EVALUACION >0;");
+	 			if($strTipoUsuario ==1){
+	 		
+	 				$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CSR, fecha_creacion, html_reporte, pais.nombre, usuario, nombre_objeto 
+	 															FROM resultado_csr, punto_evaluacion, pais
+																WHERE resultado_csr.idPUNTO_EVALUACION = punto_evaluacion.idPUNTO_EVALUACION 
+                                                                and PAIS_idPAIS=pais.idPAIS
+                                                                and resultado_csr.idPUNTO_EVALUACION>0;");	 			
+	 			}
+	 			else{
+
+	 				$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CSR, fecha_creacion, html_reporte, pais.nombre, usuario, nombre_objeto 
+	 															FROM resultado_csr, punto_evaluacion, pais
+																WHERE resultado_csr.idPUNTO_EVALUACION IN
+																(SELECT idPUNTO_EVALUACION FROM punto_evaluacion WHERE PAIS_idPAIS IN 
+                                                                (SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO =2)) 
+                                                                and resultado_csr.idPUNTO_EVALUACION = punto_evaluacion.idPUNTO_EVALUACION 
+                                                                and PAIS_idPAIS=pais.idPAIS
+                                                                and resultado_csr.idPUNTO_EVALUACION>0;");
+	 			}
 	 		return $result;
 	 	} catch (Exception $e) {
 	 		echo 'Error: ' .$e->getMessage();

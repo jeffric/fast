@@ -25,7 +25,7 @@ $c_funciones = new Funciones();
 		<?php $c_funciones->getHeaderPageNivel2("FAST CSR"); ?>
 		<div role="main" class="ui-content">
 			<div class="ui-body ui-body-a ui-corner-all">	
-			<p align="center"><strong>Seleccione el País donde se encuentra el Punto de Evaluación a relizar CSR</strong><br />
+			<p align="center"><strong>Seleccione el País donde se encuentra el Punto de Evaluación a realizar CSR</strong><br />
 				
 			<ul data-role="listview" data-filter="true" data-ajax="false">
 <?php 	

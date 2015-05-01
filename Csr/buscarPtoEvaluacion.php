@@ -21,7 +21,11 @@ $c_funciones = new Funciones();
   .panel-content {
     padding: 1em;
   }
-  </style>'); ?>
+  </style>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>  $(function() {    $( "#txtFecha" ).datepicker({dateFormat: "yy-mm-dd"});  });  </script>'); ?>
 
     <?php
           $idPais = $_GET['idPais'];
@@ -55,17 +59,18 @@ $c_funciones = new Funciones();
 									}																						
 							?>
 						</select>	
-      			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">						
-      					<label for="txtFecha">Fecha de elaboración</label>
-      					<input type="date" name="txtFecha" id="txtFecha">	
-      					<input type="text" data-role="date">
-      			</div> 						
+				
 				<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+				 Fecha:
+				 <input type="text" id="txtFecha" name="txtFecha">
 				<input type="submit" id="botonEvaluar" data-theme="a" name="submit" value="Iniciar Evaluación" class="ui-btn-hidden" aria-disabled="false"/>
 				</div>							
 
 				</div>									
 	</form>
+
+
+
 
 
 		</div>
@@ -74,4 +79,5 @@ $c_funciones = new Funciones();
 		<?php echo $c_funciones->getFooterNivel2(); ?>		
 		<!-- FOOTER -->
 	</body>
+
 	</html>

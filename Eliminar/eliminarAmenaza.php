@@ -60,7 +60,7 @@ $c_funciones = new Funciones();
 			<img src="../img/interrogacion.png" style="width:40%; height:40%; margin-top:1px;" />
 			<br>
             <a href="#" data-role="button" id="botonConfirmar" data-rel="back">Confirmar</a>
-            <a href="#" data-role="button" id="botonCancelar" data-rel="back">Cancelar</a>
+            <a href="../Eliminar/eliminarAmenaza.php" data-role="button" id="botonCancelar" data-ajax="false">Cancelar</a>
             </center>
            </article>
 </div>
@@ -117,11 +117,7 @@ $c_funciones = new Funciones();
 
 			});
 
-			$("#botonCancelar").click(function(){
-								
-				$.mobile.changePage('#pageCancelado', 'pop', true, true);
-				return false;
-			});
+
                     
         });
     </script>

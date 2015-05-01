@@ -33,19 +33,22 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 						            <th data-priority="1">idReporte</th>
 						            <th data-priority="persist">Fecha</th>
 						            <th data-priority="2">Nombre Punto de Evaluación</th>
-						            <th data-priority="3">Creador</th>
+						            <th data-priority="3">País</th>
+						            <th data-priority="4">Creador</th>
 						        </tr>
 						        </thead>
 						        <tbody>
 
 <?php
-								$result = $c_funciones->getReportesCsrPtos();
+
+								$result = $c_funciones->getReportesCsrPtos($strTipoUsuario,$idUsuario);
 									while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 										echo '<tr>';
 										echo '<th>'.$row[0].'</th>';
 										echo '<td>'.$row[1].'</td>';
-										echo '<td><a href=mostrarReporteCsr.php?idReporte='.$row[0].' data-ajax="false">'.$row[7].'</a></td>';
-										echo '<td>'.$row[3].'</td>';										
+										echo '<td><a href=mostrarReporteCsr.php?idReporte='.$row[0].' data-ajax="false">'.$row[5].'</a></td>';
+										echo '<td>'.$row[3].'</td>';		
+										echo '<td>'.$row[4].'</td>';									
 										echo '</tr>';			
 									}
 ?>						        	

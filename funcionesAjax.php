@@ -40,10 +40,10 @@ if($strMetodo == "CUsr")
 function CrearUsuario(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$strNombre = $_POST["AjxPNombre"];		
-	$strApellido = $_POST["AjxPApellido"];
+	$strNombre = str_replace("'","''",$_POST["AjxPNombre"]);		
+	$strApellido = str_replace("'","''",$_POST["AjxPApellido"]);
 	$strCorreo = $_POST["AjxPCorreo"];
-	$strPassword = $_POST["AjxPPassword"];
+	$strPassword = str_replace("'","''",$_POST["AjxPPassword"]);
 	$strTipoUsuario = $_POST["AjxPTipoUser"];
 	$strPaisUsuario = $_POST["AjxPPais"];
 
@@ -204,7 +204,7 @@ if($strMetodo == "agregarPais")
 function agregarPais(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$nombrePais = $_POST["pais"];	
+	$nombrePais = str_replace("'","''",$_POST["pais"]);	
 	$idRegion = $_POST["region"];	
 
 
@@ -239,7 +239,7 @@ if($strMetodo == "agregarRegion")
 function agregarRegion(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$nombreRegion = $_POST["region"];	
+	$nombreRegion = str_replace("'","''",$_POST["region"]);	
 
 
 
@@ -275,10 +275,10 @@ if($strMetodo == "agregarPtoEvaluacion")
 function agregarPtoEvaluacion(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$nombrePtoEvaluacion = $_POST["AjxNombre"];	
+	$nombrePtoEvaluacion = str_replace("'","''",$_POST["AjxNombre"]);	
 	$latitud = $_POST["AjxLatitud"];	
 	$longitud = $_POST["AjxLongitud"];	
-	$descripcion = $_POST["AjxDescripcion"];	
+	$descripcion = str_replace("'","''",$_POST["AjxDescripcion"]);	
 	$idPais = $_POST["AjxPais"];
 
 
@@ -374,8 +374,8 @@ if($strMetodo == "agregarAmenaza")
 function agregarAmenaza(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$amenaza = $_POST["amenaza"];	
-	$descripcion = $_POST["descripcion"];
+	$amenaza = str_replace("'","''",$_POST["amenaza"]);	
+	$descripcion = str_replace("'","''",$_POST["descripcion"]);
 
 
 
@@ -1036,8 +1036,8 @@ if($strMetodo == "agregarPlanMitigacion")
 function agregarPlanMitigacion(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$nombrePlan = $_POST["AjxNombre"];
-	$descripcion = $_POST["AjxDescripcion"];
+	$nombrePlan = str_replace("'","''",$_POST["AjxNombre"]);
+	$descripcion = str_replace("'","''",$_POST["AjxDescripcion"]);
 
 	try {
 
@@ -1067,8 +1067,8 @@ if($strMetodo == "agregarPlanPrevencion")
 function agregarPlanPrevencion(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$nombrePlan = $_POST["AjxNombre"];
-	$descripcion = $_POST["AjxDescripcion"];
+	$nombrePlan = str_replace("'","''",$_POST["AjxNombre"]);
+	$descripcion = str_replace("'","''",$_POST["AjxDescripcion"]);
 
 	try {
 
@@ -1224,8 +1224,8 @@ if($strMetodo == "modificarPlanPrevencion")
 function modificarPlanPrevencion(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$nombrePlan = $_POST["AjxNombre"];
-	$descripcion = $_POST['AjxDescripcion'];
+	$nombrePlan = str_replace("'","''",$_POST["AjxNombre"]);
+	$descripcion = str_replace("'","''",$_POST['AjxDescripcion']);
 	$idPlan = $_POST["AjxPlan"];
 
 	try {
@@ -1361,7 +1361,7 @@ function Login(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
 	$usuario = $_POST["usu"];
-	$pass = $_POST['pass'];
+	$pass = str_replace("'", "''",$_POST['pass']);
 	$tipo = $_POST["tipo"];
 
 
@@ -1388,10 +1388,10 @@ if($strMetodo == "modificarInfoUsuario")
 function modificarInfoUsuario(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$nombre = $_POST["AjxNombre"];
-	$apellido = $_POST["AjxApellido"];
-	$pass = $_POST["AjxPassword"];
-	$idUsuario = $_POST["AjxUsuario"];
+	$nombre = str_replace("'", "''", $_POST["AjxNombre"]);
+	$apellido = str_replace("'", "''",$_POST["AjxApellido"]);
+	$pass = str_replace("'", "''",$_POST["AjxPassword"]);
+	$idUsuario = str_replace("'", "''",$_POST["AjxUsuario"]);
 
 	try {
 

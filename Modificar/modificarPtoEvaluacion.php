@@ -108,11 +108,11 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
          draggable: true
          });        
 
-                     $("#selectPais").val('<?php echo $idPais; ?>');
+                     $("#selectPais").val("<?php echo $idPais; ?>");
                      $('#selectPais').selectmenu('refresh');
 
-                   $("#txtNombre").val('<?php echo $row[1]; ?>');
-                   $("#txtDescripcion").val('<?php echo $row[4]; ?>');
+                   $("#txtNombre").val("<?php echo $row[1]; ?>");
+                   $("#txtDescripcion").val("<?php echo $row[4]; ?>");
 
                   // Update current position info.
                  updateMarkerPosition(PositionPtoEvaluacion<?php echo $row[0]; ?>);
@@ -140,7 +140,7 @@ while ($row = mysqli_fetch_array($result, MYSQL_NUM)) {
 
 
          var infowindow<?php echo $row[0]; ?> = new google.maps.InfoWindow({
-         content: '<?php echo $row[1];?>'+contenido<?php echo $row[0]; ?>
+         content: "<?php echo str_replace("'","''",$row[1]);?>"+contenido<?php echo $row[0]; ?>
          });      
 
          google.maps.event.addListener(PositionMarkerPda<?php echo $row[0]; ?>, 'click', function() {
