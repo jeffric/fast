@@ -33,7 +33,8 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 						            <th data-priority="1">idReporte</th>
 						            <th data-priority="persist">Fecha</th>
 						            <th data-priority="2">Nombre Evento</th>
-						            <th data-priority="3">Creador</th>
+						            <th data-priority="3">Localidad/Lugar del Evento</th>
+						            <th data-priority="4">Creador</th>
 						        </tr>
 						        </thead>
 						        <tbody>
@@ -43,8 +44,9 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 										echo '<tr>';
 										echo '<th>'.$row[0].'</th>';
 										echo '<td>'.$row[1].'</td>';
-										echo '<td><a href=mostrarReporteCsr.php?idReporte='.$row[0].' data-ajax="false">'.$row[7].'</a></td>';
-										echo '<td>'.$row[3].'</td>';										
+										echo '<td><a href=mostrarReporteCsr.php?idReporte='.$row[0].' data-ajax="false">'.$row[3].'</a></td>';
+										echo '<td>'.$row[4].'</td>';
+										echo '<td>'.$row[5].'</td>';										
 										echo '</tr>';			
 									}
 ?>	

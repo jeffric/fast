@@ -2783,7 +2783,9 @@ function insertarReporteHissCam($NombreDepartamento,
 
 	 function getReportesCsrEventos(){
 	 	try {
-	 		$result = $this->db->ExecutePersonalizado("SELECT * FROM resultado_csr where idEvento >0;");
+	 		$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CSR, fecha_creacion, html_reporte, nombre_objeto, evento.localidad, usuario 
+	 								                   FROM resultado_csr, evento 
+	 								                   WHERE resultado_csr.idEvento >0 and resultado_csr.idEvento=evento.idEvento;");
 	 		return $result;
 	 	} catch (Exception $e) {
 	 		echo 'Error: ' .$e->getMessage();

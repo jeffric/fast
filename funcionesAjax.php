@@ -265,7 +265,7 @@ function agregarRegion(){
 	} catch (Exception $e) {
 		echo $e->getMessage();
 	}
-}
+} 
 
 
 //Agregar Punto de Evaluacion

@@ -41,7 +41,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 
 <?php
 
-								$result = $c_funciones->getReportesCsrPtos($strTipoUsuario,$idUsuario); 
+								$result = $c_funciones->getReportesCsrPtos($strTipoUsuario,$idUsuario);  
 									while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 										echo '<tr>';
 										echo '<th>'.$row[0].'</th>';
