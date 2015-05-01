@@ -622,12 +622,12 @@
 		<!-- Estilos para menu  
 		<link type="text/css" rel="stylesheet" href="css/menu/demo.css" />
 		<link type="text/css" rel="stylesheet" href="css/menu/jquery.mmenu.all.css" /> -->
-		<link type="text/css" rel="stylesheet" href="js/calendario_dw/calendario_dw-estilos.css">
+
 
 		<!-- Scripts -->
 		<script src="js/jquery-2.1.1.js"></script>
 		<script src="js/jquery.mobile-1.4.4.min.js"></script>
-		<script type="text/javascript" src="js/calendario_dw/calendario_dw.js"></script>
+
 
 		<!-- libreria para alertas 
 		<script src="js/sweet-alert.js"></script>
@@ -1222,12 +1222,11 @@ function getHeaderNivel2($tituloPagina = "", $CodigoDentroDeHeader = ""){
 	<link type="text/css" rel="stylesheet" href="../css/menu/demo.css" /> -->
 
 	<link type="text/css" rel="stylesheet" href="../css/menu/jquery.mmenu.all.css" />
-	<link type="text/css" rel="stylesheet" href="../js/calendario_dw/calendario_dw-estilos.css">
 
 	<!-- Scripts -->
 	<script src="../js/jquery-2.1.1.js"></script>		
 <script src="../js/jquery.mobile-1.4.4.min.js"></script>
-<script type="text/javascript" src="../js/calendario_dw/calendario_dw.js"></script>
+
 
 <!-- libreria para alertas -->
 <script src="../js/sweet-alert.js"></script>
