@@ -25,14 +25,12 @@ $_SESSION["idNivelRiesgo"] = $idNivelRiesgo;
 $_SESSION["cantidadRequerimientos"] =$cantidadRequerimientos;
 $fecha=$_POST["txtFecha"];
 $_SESSION["fechaCsr"]=$fecha;
-echo $_SESSION["fechaCsr"]."";
 
 $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 
-echo " ".$idUsuario;
 $idEvaluacion = $c_funciones->CrearEvaluacionSra($idUsuario, $fecha, $strUsuario, $idPuntoEvaluacion, -1);	
 $_SESSION["idEvaluacionCsrActual"] = $idEvaluacion;
-echo " ".$_SESSION["idEvaluacionCsrActual"];
+
 	}
 	else{
 			header("Location: ../Csr/index.php");
