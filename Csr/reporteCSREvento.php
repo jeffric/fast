@@ -269,7 +269,7 @@ $numeracionRequerimiento=1;
 			      $.ajax({
 		                  type: "POST",
 		                  url: "../funcionesAjax.php",
-		                  data: {nombreMetodo: "sendGMail", AjxTipoReporte: 1, mails:correos, Asunto:"World Vision - Reporte CRR Evento ", AjxIDReporte:<?php echo $resultado; ?> },
+		                  data: {nombreMetodo: "sendGMail", AjxTipoReporte: 1, mails:correos, Asunto:"World Vision - Reporte CSR Evento ", AjxIDReporte:<?php echo $resultado; ?> },
 		                  contentType: "application/x-www-form-urlencoded",
 		                  beforeSend: function(){
 		                    $('#loader_gif').fadeIn("slow");

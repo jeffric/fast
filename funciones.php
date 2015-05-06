@@ -345,9 +345,9 @@
 			    	<div data-role="collapsible" data-inset="true">
 					<h3>AGREGAR INFO A FAST</h3>
 							<ul data-role="listview">
-								<li data-icon="action" data-theme="a"><a href="Agregar/agregarAmenaza.php" data-ajax="false">Amenaza</a></li>
+							<!--	<li data-icon="action" data-theme="a"><a href="Agregar/agregarAmenaza.php" data-ajax="false">Amenaza</a></li>
 								<li data-icon="action" data-theme="a"><a href="Agregar/agregarPlanMitigacion.php" data-ajax="false">Plan de Mitigación</a></li>
-								<li data-icon="action" data-theme="a"><a href="Agregar/agregarPlanPrevencion.php" data-ajax="false">Plan de Prevención</a></li>
+								<li data-icon="action" data-theme="a"><a href="Agregar/agregarPlanPrevencion.php" data-ajax="false">Plan de Prevención</a></li> -->
 								<li data-icon="location" data-theme="a"><a href="Agregar/agregarPtoEvaluacion.php" data-ajax="false">Punto de Evaluación</a></li>	
 								<li data-icon="calendar" data-theme="a"><a href="Agregar/agregarEvento.php" data-ajax="false">Evento</a></li>												
 							</ul>
@@ -2770,7 +2770,7 @@ function insertarReporteHissCam($NombreDepartamento,
 	 															FROM resultado_csr, punto_evaluacion, pais
 																WHERE resultado_csr.idPUNTO_EVALUACION IN
 																(SELECT idPUNTO_EVALUACION FROM punto_evaluacion WHERE PAIS_idPAIS IN 
-                                                                (SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO =2)) 
+                                                                (SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO ='$idUsuario')) 
                                                                 and resultado_csr.idPUNTO_EVALUACION = punto_evaluacion.idPUNTO_EVALUACION 
                                                                 and PAIS_idPAIS=pais.idPAIS
                                                                 and resultado_csr.idPUNTO_EVALUACION>0;");
@@ -2889,9 +2889,21 @@ function insertarReporteHissCam($NombreDepartamento,
  }
 }
 
-	 function getReportesCrrPais(){
+	 function getReportesCrrPais($strTipoUsuario,$idUsuario){
 	 	try {
-	 		$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CRR, FECHA, nombre, usuario_evaluador FROM resultado_crr, pais where tipo_objeto = 0 AND pais.idPAIS = resultado_crr.fk_idPAIS;");
+
+	 		if($strTipoUsuario ==1){
+	 				$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CRR, FECHA, nombre, usuario_evaluador FROM resultado_crr, pais where tipo_objeto = 0 AND pais.idPAIS = resultado_crr.fk_idPAIS;");
+	 		}
+	 		else{
+
+	 				$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CRR, fecha, nombre, usuario_evaluador
+	 															FROM resultado_crr, pais
+																WHERE resultado_crr.fk_idPAIS IN 
+                                                                (SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO ='$idUsuario') 
+																and resultado_crr.fk_idPAIS = pais.idPais;");
+	 		}
+	 		
 	 		return $result;
 	 	} catch (Exception $e) {
 	 		echo 'Error: ' .$e->getMessage();
@@ -2907,9 +2919,19 @@ function insertarReporteHissCam($NombreDepartamento,
 	 	}
 	 }		
 
-	 function getReportesCrrPtos(){
+	 function getReportesCrrPtos($strTipoUsuario, $idUsuario){
 	 	try {
-	 		$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CRR, FECHA, nombre, usuario_evaluador FROM resultado_crr, punto_evaluacion where tipo_objeto = 2 AND punto_evaluacion.idPunto_Evaluacion = resultado_crr.fk_idPUNTO_EVALUACION;");
+
+	 		if($strTipoUsuario ==1){
+	 			$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CRR, FECHA, nombre, usuario_evaluador FROM resultado_crr, punto_evaluacion where tipo_objeto = 2 AND punto_evaluacion.idPunto_Evaluacion = resultado_crr.fk_idPUNTO_EVALUACION;");
+	 		}
+	 		else{
+
+	 			$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_CRR, FECHA, nombre, usuario_evaluador from punto_evaluacion, resultado_crr where PAIS_idPAIS in 
+                                                         (SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO ='$idUsuario') 
+                                                          and punto_evaluacion.idPunto_Evaluacion = resultado_crr.fk_idPUNTO_EVALUACION;"); 
+	 		}
+	 		
 	 		return $result;
 	 	} catch (Exception $e) {
 	 		echo 'Error: ' .$e->getMessage();

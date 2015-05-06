@@ -35,11 +35,49 @@ $idReporte = $_GET["idReporte"];
 ?>
 					
 				</div>
+
+			<div data-role="fieldcontain">
+				<label for="txtDescripcion">Lista de correos (correos separados por comas):</label>
+				<textarea cols="40" rows="8" name="txtCorreos" id="txtCorreos" placeholder="Ej: cordonez@vm.com, jp@vm.com, jfuentes@gmail.com, lbarrios@gmail.com..."></textarea>
+			</div>
+			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+				<a id="btnCorreo" data-role="button" href="#" name="btnEvaluar" class="ui-btn-hidden" aria-disabled="false">Enviar por correo</a>
+			</div>	
+
 		</div>
 		<?php echo $c_funciones->getMenuNivel2($strTipoUsuario); ?>			
 		<?php echo $c_funciones->getFooterNivel2(); ?>	
 </div>
 </body>
-<script>
-</script>
+	<script type="text/javascript">
+
+       $(document).ready(function(){
+
+			$("#btnCorreo").click(function(){
+
+				var correos = $("#txtCorreos").val();
+				alert(<?php echo $idReporte; ?>);
+			      $.ajax({
+		                  type: "POST",
+		                  url: "../funcionesAjax.php",
+		                  data: {nombreMetodo: "sendGMail", AjxTipoReporte: 2, mails:correos, Asunto:"World Vision - Reporte CRR", AjxIDReporte:<?php echo $idReporte; ?> },
+		                  contentType: "application/x-www-form-urlencoded",
+		                  beforeSend: function(){
+		                    $('#loader_gif').fadeIn("slow");
+
+		                  },
+		                  dataType: "html",
+		                  success: function(msg){
+		                  		alert(msg);
+		                  }  			      	
+           
+                });								
+
+			});
+
+
+        });       	
+
+
+	</script>
 </html>
