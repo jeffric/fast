@@ -158,11 +158,11 @@ $numeracionRequerimiento=1;
 									$reporteHtml=  $reporteHtml.'</p>';									
 									$reporteHtml=  $reporteHtml.'<table data-role="table" class="ui-responsive">';
 								    $reporteHtml=  $reporteHtml.'<thead style="text-align: center;">';
-								    $reporteHtml=  $reporteHtml.'		<tr style="text-align: center; background-color: #9CF; font-weight: bold;">';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center";><font face="courier">NO APLICA</font></th>';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center";><font face="courier">NO INICIADOS</font></th>';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center";><font face="courier">INICIADOS</font></th>';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center";><font face="courier">COMPLETADOS</font></th>';							    								    
+								    $reporteHtml=  $reporteHtml.'		<tr style="text-align: center;  font-weight: bold;">';
+								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #9CF;" ><font face="courier">NO APLICA</font></th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #7CF;" ><font face="courier">NO INICIADOS</font></th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #5CF;" ><font face="courier">INICIADOS</font></th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #3CF;" ><font face="courier">COMPLETADOS</font></th>';							    								    
 								    $reporteHtml=  $reporteHtml.'   </thead>';
 
 									$reporteHtml=  $reporteHtml.'<tbody>';
