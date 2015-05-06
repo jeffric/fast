@@ -38,7 +38,7 @@ $idUsuario = $c_funciones->getIdUsuario($strUsuario);
 						        </thead>
 						        <tbody>
 <?php
-								$result = $c_funciones->getReportesSraPtos();
+								$result = $c_funciones->getReportesSraPtos($strTipoUsuario, $idUsuario);
 									while ($row = mysqli_fetch_array($result, MYSQL_NUM)){
 										echo '<tr>';
 										echo '<th>'.$row[0].'</th>';

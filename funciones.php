@@ -2984,9 +2984,21 @@ function insertarReporteHissCam($NombreDepartamento,
 	 	}
 	 }		
 
-	 function getReportesSraPtos(){
+	 function getReportesSraPtos($strTipoUsuario, $idUsuario){
 	 	try {
-	 		$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_SRA, fecha_creacion, punto_evaluacion.nombre, correo  FROM usuario, resultado_sra, punto_evaluacion where tipo_objeto = 1 AND punto_evaluacion.idPUNTO_EVALUACION = resultado_sra.idPUNTO_EVALUACION and usuario.idUsuario = RESULTADO_SRA.usuario;");
+
+	 		if($strTipoUsuario ==1){
+
+	 				 		$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_SRA, fecha_creacion, punto_evaluacion.nombre, correo  FROM usuario, resultado_sra, punto_evaluacion where tipo_objeto = 1 AND punto_evaluacion.idPUNTO_EVALUACION = resultado_sra.idPUNTO_EVALUACION and usuario.idUsuario = RESULTADO_SRA.usuario;");
+	 		}
+	 			else{
+
+	 						$result = $this->db->ExecutePersonalizado("SELECT idRESULTADO_sra, fecha_creacion, nombre_tipo_objeto, correo from punto_evaluacion, resultado_sra, usuario where PAIS_idPAIS in 
+                                                                     (SELECT fk_idPAIS FROM asignacion_usuario_pais WHERE fk_idUSUARIO ='$idUsuario') 
+                                                                      and punto_evaluacion.idPunto_Evaluacion = resultado_sra.idPUNTO_EVALUACION and usuario.idUSUARIO = resultado_sra.Usuario and tipo_objeto=1;");
+	 			}
+
+	 		
 	 		return $result;
 	 	} catch (Exception $e) {
 	 		echo 'Error: ' .$e->getMessage();
