@@ -109,30 +109,32 @@ $reporteHtml="";
 	if(($arrSelect)){
 						if(!empty($arrSelect)) {
 $contador=0;
+$numeracionRequerimiento=1;
 								foreach($arrSelect as $option){
 										if($option == '1'){
 											$contadorNoAplicable = $contadorNoAplicable+1;
 											$cadenaNoAplicable=$cadenaNoAplicable.'
-											<li>'.$_POST['requerimientos'.$contador].'</li>';										
+											<br>'.$numeracionRequerimiento.")".$_POST['requerimientos'.$contador].'';										
 										}
 										else if($option == '2'){
 											$contadorNoIniciado = $contadorNoIniciado+1;
 											$cadenaNoIniciado=$cadenaNoIniciado.'
-											<li>'.$_POST['requerimientos'.$contador].'</li>';
+											<br>'.$numeracionRequerimiento.")".$_POST['requerimientos'.$contador].'';
 
 										}
 										else if($option == '3'){
 											$contadorIniciado = $contadorIniciado+1;
 											$cadenaIniciado=$cadenaIniciado.'
-											<li>'.$_POST['requerimientos'.$contador].'</li>';											
+											<br>'.$numeracionRequerimiento.")".$_POST['requerimientos'.$contador].'';											
 										}
 										else{
 											$contadorCompletado = $contadorCompletado+1;
 											$cadenaCompletado=$cadenaCompletado.'
-											<li>'.$_POST['requerimientos'.$contador].'</li>';											
+											<br>'.$numeracionRequerimiento.")".$_POST['requerimientos'.$contador].'';											
 										}
 
 										$contador=$contador+1;
+										$numeracionRequerimiento =$numeracionRequerimiento+1;
 
 								}
 
@@ -267,7 +269,7 @@ $contador=0;
 			      $.ajax({
 		                  type: "POST",
 		                  url: "../funcionesAjax.php",
-		                  data: {nombreMetodo: "sendGMail", AjxTipoReporte: 1, mails:correos, Asunto:"Visión Mundial - Reporte CRR Evento ", AjxIDReporte:<?php echo $resultado; ?> },
+		                  data: {nombreMetodo: "sendGMail", AjxTipoReporte: 1, mails:correos, Asunto:"World Vision - Reporte CRR Evento ", AjxIDReporte:<?php echo $resultado; ?> },
 		                  contentType: "application/x-www-form-urlencoded",
 		                  beforeSend: function(){
 		                    $('#loader_gif').fadeIn("slow");

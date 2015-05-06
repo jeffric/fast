@@ -107,30 +107,32 @@ $reporteHtml="";
 	if(($arrSelect)){
 						if(!empty($arrSelect)) {
 $contador=0;
+$numeracionRequerimiento=1;
 								foreach($arrSelect as $option){
 										if($option == '1'){
 											$contadorNoAplicable = $contadorNoAplicable+1;
 											$cadenaNoAplicable=$cadenaNoAplicable.'
-											<li>'.$_POST['requerimientos'.$contador].'</li>';										
+											<br>'.$numeracionRequerimiento.")".$_POST['requerimientos'.$contador].'';										
 										}
 										else if($option == '2'){
 											$contadorNoIniciado = $contadorNoIniciado+1;
 											$cadenaNoIniciado=$cadenaNoIniciado.'
-											<li>'.$_POST['requerimientos'.$contador].'</li>';
+											<br>'.$numeracionRequerimiento.")".$_POST['requerimientos'.$contador].'';
 
 										}
 										else if($option == '3'){
 											$contadorIniciado = $contadorIniciado+1;
 											$cadenaIniciado=$cadenaIniciado.'
-											<li>'.$_POST['requerimientos'.$contador].'</li>';											
+											<br>'.$numeracionRequerimiento.")".$_POST['requerimientos'.$contador].'';											
 										}
 										else{
 											$contadorCompletado = $contadorCompletado+1;
 											$cadenaCompletado=$cadenaCompletado.'
-											<li>'.$_POST['requerimientos'.$contador].'</li>';											
+											<br>'.$numeracionRequerimiento.")".$_POST['requerimientos'.$contador].'';											
 										}
 
 										$contador=$contador+1;
+										$numeracionRequerimiento =$numeracionRequerimiento+1;
 
 								}
 

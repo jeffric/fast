@@ -21,7 +21,13 @@ $c_funciones = new Funciones();
   .panel-content {
     padding: 1em;
   }
-  </style>'); ?>
+  </style>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>  $(function() {    $( "#txtFecha" ).datepicker({dateFormat: "yy-mm-dd"});  });  </script>');
+
+?>
 
 
 <body>
@@ -55,7 +61,7 @@ $c_funciones = new Funciones();
 
       			<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">						
       					<label for="txtFecha">Fecha de elaboración</label>
-      					<input type="date" name="txtFecha" id="txtFecha">	
+      					<input type="text" name="txtFecha" id="txtFecha">	
       			</div> 						
 				<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 				<input type="submit" id="botonEvaluar" data-theme="a" name="submit" value="Iniciar Evaluación" class="ui-btn-hidden" aria-disabled="false"/>
