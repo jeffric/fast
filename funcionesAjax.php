@@ -1327,11 +1327,11 @@ if($strMetodo == "modificarMiInfo")
 function modificarMiInfo(){
 	include_once "funciones.php";
 	$db_funciones = new Funciones();
-	$nombre = $_POST["AjxNombre"];
-	$apellido = $_POST["AjxApellido"];
+	$nombre = str_replace("'","''",$_POST["AjxNombre"]);
+	$apellido = str_replace("'","''",$_POST["AjxApellido"]);
 	$correo = $_POST["AjxCorreo"];
-	$pass = $_POST["AjxPassword"];
-	$passActual = $_POST["AjxPassActual"];
+	$pass = str_replace("'","''",$_POST["AjxPassword"]);
+	$passActual = str_replace("'","''",$_POST["AjxPassActual"]);
 	$idUsuario = $_POST["AjxUsuario"];
 
 	try {

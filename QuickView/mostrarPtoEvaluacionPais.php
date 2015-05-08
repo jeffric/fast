@@ -162,7 +162,7 @@ while ($filaidPdas = mysqli_fetch_array($result, MYSQL_NUM)) {
 
 
          var infowindow<?php echo $filaidPdas[0]; ?> = new google.maps.InfoWindow({
-         content: '<?php echo $filaidPdas[1];?>'+contenido<?php echo $filaidPdas[0]; ?>
+         content: "<?php echo $filaidPdas[1];?>"+contenido<?php echo $filaidPdas[0]; ?>
          });      
 
          google.maps.event.addListener(PositionMarkerPda<?php echo $filaidPdas[0]; ?>, 'click', function() {
