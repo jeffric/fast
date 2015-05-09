@@ -486,8 +486,8 @@ function evaluar(){
 					if(datos.startsWith("-1")){
 						var arrErr = datos.split("|");						
 					}else{
-						alert(datos);
-						//window.location= "reporteSra.php?idRepo=" + datos;
+						//alert(datos);
+						window.location= "reporteSra.php?idRepo=" + datos;
 					}
 				},
 				error: function (objeto, error, objeto2) {

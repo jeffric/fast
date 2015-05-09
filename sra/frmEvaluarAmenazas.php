@@ -49,7 +49,7 @@ $c_funciones = new Funciones();
 							$_SESSION['arrAmenazasSRAActual'] = $_POST['chkAmenazas'];							
 							$strHtml = "";
 							$strJs = "";
-							$contadorA = 0;
+							$contadorA = 1;
 							$contadorB = 100;
 							$contadorC = 200;
 							$contadorD = 300;
@@ -231,7 +231,7 @@ echo "<script type='text/javascript'>" . $strJs . "</script>";
 }else if(isset($_SESSION['arrAmenazasSRAActual'])){
 	$strHtml = "";
 	$strJs = "";
-	$contadorA = 0;
+	$contadorA = 1;
 	$contadorB = 100;
 	$contadorC = 200;
 	$contadorD = 300;

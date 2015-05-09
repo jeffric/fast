@@ -42,7 +42,7 @@
 			$db_name = "fastdbvm";
 			// $username = "root";
 			$username = "root";
-			$password = "M2chus04";
+			$password = "admin";
 			parent::__construct($serverName, $port, $db_name, $username, $password);		
 		}
 
@@ -1949,7 +1949,7 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				$strRestricciones .= " idAMENAZA = " . $idAmenaza . " ";
 			}			
 			try {
-				$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, "","");
+				$result = $this->db->Consultar($strTabla, $strCampos, $strRestricciones, ""," nombre asc ");
 				return $result;
 			} catch (Exception $e) {
 				echo 'Error: ' .$e->getMessage();
@@ -2591,8 +2591,8 @@ function getHeaderPageNivel2($TituloDePagina = ""){
 				$strTabla = " resultado_sra ";
 				$strCampos = "";
 				$strValores = "";
-					$strCampos = "  fecha_creacion, html_reporte, usuario, tipo_objeto, nombre_tipo_objeto, idPUNTO_EVALUACION, descripcion_evaluacion ";
-					$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', "  . $TipoObjeto . ", '" . $NombreObjeto . "', " . $idPuntoEval . ", '" . $descripcion . "' ";				
+					$strCampos = "  fecha_creacion, html_reporte, usuario, tipo_objeto, nombre_tipo_objeto, idPUNTO_EVALUACION, descripcion_evaluacion, fk_NIVEL_RIESGO ";
+					$strValores = "'" . $FechaCreacion . "','" . $htmlReporte . "','" . $Usuario . "', "  . $TipoObjeto . ", '" . $NombreObjeto . "', " . $idPuntoEval . ", '" . $descripcion . "', 1 ";				
 				//return "INSERT INTO " . $strTabla . "(" . $strCampos . ") VALUES(" . $strValores . ")";
 				$result = $this->db->InsertarIdentity($strTabla, $strCampos, $strValores);
 				if($result > 0){
