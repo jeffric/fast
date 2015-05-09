@@ -266,7 +266,6 @@ $numeracionRequerimiento=1;
 			$("#btnCorreo").click(function(){
 
 				var correos = $("#txtCorreos").val();
-				//alert(<?php echo $resultado; ?>);
 			      $.ajax({
 		                  type: "POST",
 		                  url: "../funcionesAjax.php",

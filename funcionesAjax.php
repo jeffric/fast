@@ -794,6 +794,7 @@ function SetPaso2SRA(){
 	$strHtmlTablaGeneral .= '</table>';
 		// echo $strHtmlTablaGeneral;
 	//insertamos el reporte
+	//$strHtmlTablaGeneral = str_replace("'", "''", $strHtmlTablaGeneral);
     if($idPtoEval == ""){
         $idReporte = $db_funciones->insertarReporteSra($FechaEval, 
         $strHtmlTablaGeneral, $idUsuarioEvaluador, $tipoObjeto, $nombreObjeto, $idEvento,$strDescripcionPaso2);
@@ -801,8 +802,9 @@ function SetPaso2SRA(){
         $idReporte = $db_funciones->insertarReporteSra($FechaEval, 
         $strHtmlTablaGeneral, $idUsuarioEvaluador, $tipoObjeto, $nombreObjeto,$idPtoEval,$strDescripcionPaso2);
     }	
-			$strusr = $_SESSION["Usuario"];
-			$db_funciones->Bitacora($strusr, 'Creacion de reporte SRA con identificador "' . $idReporte . '"');
+    //echo $idReporte;
+	 		$strusr = $_SESSION["Usuario"];
+	 		$db_funciones->Bitacora($strusr, 'Creacion de reporte SRA con identificador "' . $idReporte . '"');
 	echo $idReporte;
 }
 
