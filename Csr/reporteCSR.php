@@ -158,12 +158,14 @@ $numeracionRequerimiento=1;
 									$reporteHtml=  $reporteHtml.'</p>';									
 									$reporteHtml=  $reporteHtml.'<table data-role="table" class="ui-responsive">';
 								    $reporteHtml=  $reporteHtml.'<thead style="text-align: center;">';
-								    $reporteHtml=  $reporteHtml.'		<tr style="text-align: center;  font-weight: bold;">';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #00FFFF;" ><font face="arial">NO APLICA</font></th>';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #FF0000;" ><font face="arial">NO INICIADOS</font></th>';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #FFFF00;" ><font face="arial">INICIADOS</font></th>';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #7FFF00;" ><font face="arial">COMPLETADOS</font></th>';							    								    
-								    $reporteHtml=  $reporteHtml.'   </thead>';
+								    $reporteHtml=  $reporteHtml.'		<tr style="text-align: center; font-weight: bold;">';
+								    $reporteHtml=  $reporteHtml.'            <th style="background-color: #00FFFF;"> % No Aplica</th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="background-color: #FF0000;" >% No Iniciados</th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="background-color: #FFFF00;">% Iniciados</th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="background-color: #7FFF00;">% Completados</th>';
+
+								    $reporteHtml=  $reporteHtml.'        </tr>';
+								    $reporteHtml=  $reporteHtml.'</thead>';
 
 									$reporteHtml=  $reporteHtml.'<tbody>';
 
@@ -209,8 +211,7 @@ $numeracionRequerimiento=1;
 									$reporteHtml= $reporteHtml.$cadenaCompletado.'</ol>';
 									$reporteHtml= $reporteHtml.'</td>';	
 
-									$reporteHtml= $reporteHtml.'<td>';
-									$reporteHtml= $reporteHtml.'</td>';	
+
 
 									$reporteHtml= $reporteHtml.'</tr>';
 

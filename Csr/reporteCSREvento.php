@@ -47,7 +47,6 @@ $reporteHtml="";
   }
   </style>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">   
 
 
 
@@ -99,10 +98,10 @@ $reporteHtml="";
 		$contadorIniciado=0;
 		$contadorCompletado=0;
 
-		$cadenaNoAplicable='<ol>';
-		$cadenaNoIniciado='<ol>';
-		$cadenaIniciado='<ol>';
-		$cadenaCompletado='<ol>';
+		$cadenaNoAplicable="";
+		$cadenaNoIniciado="";
+		$cadenaIniciado="";
+		$cadenaCompletado="";
 	
 		$cum=0;
 
@@ -148,24 +147,14 @@ $numeracionRequerimiento=1;
 									$IN = number_format($contadorIniciado, 2, '.', '');
 									$COM = number_format($contadorCompletado, 2, '.', '');	
 
-									if($contadorCompletado ==0){
-
-										$reporteHtml= $reporteHtml.'<center><b>CUMPLIMIENTO: 0%</b></center>';
-
-									}
-									else{
-										$cum =number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '');
-										$reporteHtml= $reporteHtml.'<br><b>CUMPLIMIENTO:'.number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '').'%</b>';
-
-									}
-									$reporteHtml=  $reporteHtml.'</p>';									
-									$reporteHtml=  $reporteHtml.'<table data-role="table" class="ui-responsive">';
+									$reporteHtml=  $reporteHtml.'<table>';
 								    $reporteHtml=  $reporteHtml.'<thead style="text-align: center;">';
 								    $reporteHtml=  $reporteHtml.'		<tr style="text-align: center; font-weight: bold;">';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #00FFFF;" ><font face="arial">NO APLICA</font></th>';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #FF0000;" ><font face="arial">NO INICIADOS</font></th>';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #FFFF00;" ><font face="arial">INICIADOS</font></th>';
-								    $reporteHtml=  $reporteHtml.'            <th style="text-align: center; background-color: #7FFF00;" ><font face="arial">COMPLETADOS</font></th>';	
+								    $reporteHtml=  $reporteHtml.'            <th style="background-color: #00FFFF;">% No Aplica</th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="background-color: #FF0000;">% No Iniciados</th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="background-color: #FFFF00;">% Iniciados</th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="background-color: #7FFF00;">% Completados</th>';
+								    $reporteHtml=  $reporteHtml.'            <th style="background-color: #FFFFFF;">% Cumplimiento</th>';
 								    $reporteHtml=  $reporteHtml.'        </tr>';
 								    $reporteHtml=  $reporteHtml.'</thead>';
 
@@ -192,7 +181,19 @@ $numeracionRequerimiento=1;
 									//$reporteHtml= $reporteHtml.'<br>';
 									$reporteHtml= $reporteHtml.'</td>';
 
+									$reporteHtml= $reporteHtml.'<td style="text-align: center;">'; 
+									if($contadorCompletado ==0){
 
+										$reporteHtml= $reporteHtml.'0%';
+
+									}
+									else{
+										$cum =number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '');
+									$reporteHtml= $reporteHtml.number_format((($contadorCompletado/($contadorIniciado+$contadorNoIniciado+$contadorCompletado))*100), 2, '.', '').'%';
+
+									}
+									$reporteHtml= $reporteHtml.'<br>';
+									$reporteHtml= $reporteHtml.'</td>';	
 									
 									$reporteHtml= $reporteHtml.'</tr>';
 
@@ -269,7 +270,7 @@ $numeracionRequerimiento=1;
 			      $.ajax({
 		                  type: "POST",
 		                  url: "../funcionesAjax.php",
-		                  data: {nombreMetodo: "sendGMail", AjxTipoReporte: 1, mails:correos, Asunto:"World Vision - Reporte CSR Evento ", AjxIDReporte:<?php echo $resultado; ?> },
+		                  data: {nombreMetodo: "sendGMail", AjxTipoReporte: 1, mails:correos, Asunto:"Visión Mundial - Reporte CRR Evento ", AjxIDReporte:<?php echo $resultado; ?> },
 		                  contentType: "application/x-www-form-urlencoded",
 		                  beforeSend: function(){
 		                    $('#loader_gif').fadeIn("slow");
