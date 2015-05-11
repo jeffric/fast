@@ -740,7 +740,7 @@ function SetPaso2SRA(){
   	$strHtmlTabla2 .= '<td style="width:15%;font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;" class="tg-hgcj font-weight:bold;text-align:center">' . $amenaza . '</td>';
   	$strHtmlTabla2 .= '<td style="width:15%;font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;" class="tg-f062">' . $arrNivelesRP1[$contAm] . '</td>';
   	$strHtmlTabla2 .= '<td style="width:40%;font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff; word-wrap: break-word;background-image:url(../img/rarrow.png); background-size: 100% 100%; background-position:right 0px; background-repeat:no-repeat;" class="tg-031e">' . $arrPMP[$contAm] . '</td>';
-  	$strHtmlTabla2 .= '<td colspan="2" class="tg-f062" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;text-align:center">' . $arrNivelRP2[$contAm] . '</td>';
+  	$strHtmlTabla2 .= '<td colspan="2" class="tg-f062" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#' . getCssNivelRiesgo(strtolower($arrNivelRP2[$contAm])) . ';text-align:center">' . $arrNivelRP2[$contAm] . '</td>';
   	//$strHtmlTabla2 .= '<td class="tg-bghc" style="font-weight:bold;background-color:#32cb00;text-align:center">ACEPTABLE</td>';
   	$strHtmlTabla2 .= '</tr>';
   	$contAm = $contAm + 1;
@@ -827,7 +827,31 @@ function getCssNivelRiesgo($idNivelRiesgo){
 		return "tg-lkh4";
 		case 6:
 				//nulo
-		return "tg-lkh3";
+		return "tg-lkh3";	
+		case "insignificante":
+				//insignificante - verde
+		return "00FF00";
+		case "bajo":
+				//bajo - amarillo
+		return "E8E118";
+		case "medio":
+				//medio
+		return "E88018";
+		case "alto":
+				//alto
+		return "E81818";
+		case "critico":
+				//critico
+		return "000000";
+		case "crítico":
+				//critico
+		return "000000";
+		case "cr&iacute;tico":
+				//critico
+		return "000000";
+		case "nulo":
+				//nulo
+		return "56E583";
 		default:
 		return "";
 	}

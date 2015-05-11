@@ -22,6 +22,12 @@ try {
 <html>
 <?php echo $c_funciones->getHeaderNivel2("SRA - Inicio", 
 	'
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">  
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>  $(function() {    $( "#txtFecha" ).datepicker({dateFormat: "dd/mm/yy"});  });  </script>
+
 <style>
   .panel-content {
     padding: 1em;
@@ -67,7 +73,7 @@ try {
 					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<label for="txtFecha" >Fecha</label>
-						<input type="date" name="txtFecha" id="txtFecha">					
+						<input type="text" name="txtFecha" id="txtFecha">					
 					</div>
 					<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
 						<label for="txtCreador" >Elaborado por</label>
@@ -113,7 +119,7 @@ try {
 					$("#lstPuntoEvaluacion").html("");
 					$("#lstPuntoEvaluacion").html(datos);
 					$('#lstPuntoEvaluacion option:eq(0)').prop('selected', true);
-					$('#lstPuntoEvaluacion').selectmenu('refresh');
+					$('#lstPuntoEvaluacion').selectmenu('refresh',true);
 				},
 				error: function (objeto, error, objeto2) {
 					//$("#modalCargando").modal("hide");
@@ -135,6 +141,9 @@ try {
 		$(".confirm").click();
 	}
 
+
+
 </script>
+
 </body>
 </html>
