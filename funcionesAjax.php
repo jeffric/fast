@@ -612,84 +612,38 @@ function SetPaso2SRA(){
 
 	//Tabla 1 (encabezado con la info de la evaluacion)
 
-	$strHtmlTabla1 = '<table class="tg" style="border-collapse:collapse;border-spacing:0;border-color:#aaa;table-layout: fixed; width: 100%;">';
-	// $strHtmlTabla1 .= '	<tr>';
-	// $strHtmlTabla1 .= '		<td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
-	// $strHtmlTabla1 .= 'Nivel de riesgo';
-	// $strHtmlTabla1 .= '		</td>';	
-	// $strHtmlTabla1 .= '		<td class="tg-031e" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;">';
-	// $strHtmlTabla1 .= $strIdNivelRiesgoPaso2;
-	// $strHtmlTabla1 .= '		</td>';	
-	// $strHtmlTabla1 .= '	</tr>';
-	// $strHtmlTabla1 .= '<tr>';
-	$strHtmlTabla1 .= '		<tr><td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
+	$strHtmlTabla1 = '<table class="tg" border="1" style="width: 100%;" >';	
+	$strHtmlTabla1 .= '		<tr><td >';
 	$strHtmlTabla1 .= 'Punto/Evento de evaluaci&oacute;n';
 	$strHtmlTabla1 .= '		</td>';
-	$strHtmlTabla1 .= '		<td class="tg-031e" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;">';
+	$strHtmlTabla1 .= '		<td>';
 	$strHtmlTabla1 .= $nombrePtoEventoEval;
 	$strHtmlTabla1 .= '		</td>';
 	$strHtmlTabla1 .= '	</tr>';
 	$strHtmlTabla1 .= '<tr>';
-	$strHtmlTabla1 .= '		<td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
+	$strHtmlTabla1 .= '		<td>';
 	$strHtmlTabla1 .= 'Fecha';
 	$strHtmlTabla1 .= '		</td>';
-	$strHtmlTabla1 .= '		<td class="tg-031e" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;">';
+	$strHtmlTabla1 .= '		<td >';
 	$arrFechaEval = explode('-',$FechaEval);
 	$strHtmlTabla1 .= "$arrFechaEval[2]/$arrFechaEval[1]/$arrFechaEval[0]";
 	$strHtmlTabla1 .= '		</td>';
 	$strHtmlTabla1 .= '	</tr>';
 	$strHtmlTabla1 .= '<tr>';
-	$strHtmlTabla1 .= '		<td class="tg-mnb8" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;font-weight:bold;background-color:#f38630;color:#ffffff">';
+	$strHtmlTabla1 .= '		<td>';
 	$strHtmlTabla1 .= 'Evaluador';
 	$strHtmlTabla1 .= '		</td>';
-	$strHtmlTabla1 .= '		<td class="tg-031e" style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;">';
+	$strHtmlTabla1 .= '		<td>';
 	$strHtmlTabla1 .= $NombreUsuarioCreador . " - " . $CorreoUsuarioCreador . "<br>" . $Creador ;
 	$strHtmlTabla1 .= '		</td>';
 	$strHtmlTabla1 .= '	</tr>';
 	$strHtmlTabla1 .= '</table>';
 
 
-	//construccion de la tabla # 2, Evaluacion automatica
-	/*
-<table class="tg" style="undefined;table-layout: fixed; width: 989px">
-<colgroup>
-<col style="width: 112px">
-<col style="width: 129px">
-<col style="width: 530px">
-<col style="width: 109px">
-<col style="width: 109px">
-</colgroup>
-  <tr>
-    <th class="tg-031e"></th>
-    <th class="tg-031e"></th>
-    <th class="tg-031e"></th>
-    <th class="tg-031e"></th>
-    <th class="tg-031e"></th>
-  </tr>
-  <tr>
-    <td class="tg-hgcj">Amenaza 1</td>
-    <td class="tg-f062">CRITICO<br></td>
-    <td class="tg-031e">Maecenas luctus nec ante nec vulputate. Integer et euismod arcu. Curabitur volutpat mauris ac magna tincidunt, vel egestas dui tempus. Curabitur tristique turpis egestas justo dapibus volutpat. Nullam ac sollicitudin odio. Aliquam vulputate mauris vehicula tellus viverra lobortis ac in risus. Donec volutpat neque nec rutrum molestie.Fusce viverra consequat ipsum, nec tempor magna pellentesque sit amet. Morbi ex ligula, molestie et risus non, varius cursus erat. Phasellus volutpat tortor enim, id convallis ligula pharetra et. Praesent eu dolor non mi efficitur commodo. Mauris semper sem et bibendum posuere. Duis vulputate nec risus vitae ultrices. Donec mollis euismod nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;Mauris faucibus, nisl vel consequat ullamcorper, diam ex mollis nibh, imperdiet porttitor enim eros ut dui. Curabitur nisl leo, ultricies ac finibus ac, vestibulum id nibh. Suspendisse potenti. Donec sodales ipsum in neque mollis scelerisque. Ut molestie non erat nec feugiat. Nunc ut aliquam nunc. Aenean dictum tempor neque, ut convallis ante accumsan quis. Suspendisse vulputate nisl sed velit viverra pulvinar. Donec non dui magna. Fusce ultricies porta massa ac venenatis. Etiam fermentum luctus cursus. Donec ut orci vel erat dignissim aliquam quis sit amet lorem. Maecenas semper sagittis ipsum sed suscipit. Pellentesque cursus interdum malesuada. Aenean pharetra, metus lobortis tincidunt maximus, erat nunc semper metus, sed suscipit mauris ante vitae sem. Vestibulum nec accumsan lorem.</td>
-    <td class="tg-f062">ALTO</td>
-    <td class="tg-bghc">ACEPTABLE</td>
-  </tr>
-  <tr>
-    <td class="tg-e3zv">Amenaza 2</td>
-    <td class="tg-f062">MEDIO</td>
-    <td class="tg-031e">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel interdum orci. Fusce auctor hendrerit enim, vitae sollicitudin orci lobortis sit amet. Sed dictum tellus quis dolor mattis, et euismod ante vestibulum. Cras at odio tellus. Nulla imperdiet odio et pretium congue. Ut eget pretium dolor. Praesent egestas consectetur risus, ac accumsan quam fringilla sed. Suspendisse potenti. Maecenas et sem justo. Cras id varius neque, a aliquam tortor. Suspendisse in ex et ligula malesuada laoreet. Vivamus at mi nec sem pretium rhoncus. Donec ac lorem id sapien hendrerit iaculis id a tortor. Curabitur feugiat, massa nec cursus molestie, sapien nulla laoreet mauris, ut ultrices lacus velit et leo. Pellentesque laoreet, urna ac hendrerit volutpat, ipsum elit lacinia urna, sit amet tristique tortor arcu eu mi.Morbi ut mi erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam eu bibendum est. Morbi quis finibus eros, at elementum tellus. Vivamus a dignissim odio. Integer placerat quam lectus, nec consequat magna egestas a. Donec a leo euismod, mattis purus in, convallis magna. Donec sollicitudin elementum ex sed eleifend.Pellentesque accumsan velit ac erat porta, quis fringilla lacus consectetur. Donec eros magna, feugiat ac euismod a, dignissim nec orci. Sed eros ante, suscipit ac magna a, feugiat mattis mi. Pellentesque ultricies, ipsum quis consectetur cursus, erat enim accumsan urna, nec rhoncus ex elit ut nibh. Ut a justo ligula. Mauris ultricies porta diam vitae iaculis. Pellentesque placerat dui id mi lacinia rhoncus. Cras dignissim faucibus tristique. Vivamus leo risus, mattis ullamcorper lacinia ut, viverra vitae odio. Donec id augue magna. Etiam non tellus sagittis, dictum turpis in, varius velit. Mauris tempus rhoncus lacus, quis interdum urna facilisis quis.</td>
-    <td class="tg-f062">Medio</td>
-    <td class="tg-1ea8">INACEPTABLE</td>
-  </tr>
-</table>
-*/
+	
 	$strHtmlTabla2 = '';
-	$strHtmlTabla2 .= '<table class="tg" style="undefined;table-layout: fixed; width: 100%">';
-	// $strHtmlTabla2 .= '	<tr>';
-	// $strHtmlTabla2 .= '		<td class="tg-mnb8">Amenaza</td>';
-	// $strHtmlTabla2 .= '		<td class="tg-mnb8">Impacto</td>';
-	// $strHtmlTabla2 .= '		<td class="tg-mnb8">Probabilidad</td>';
-	// $strHtmlTabla2 .= '		<td class="tg-mnb8">Nivel de riesgo</td>';
-	// $strHtmlTabla2 .= '	</tr>';
+	$strHtmlTabla2 .= '<table class="tg"  style="width: 100%;" >';
+	
 	
 	//niveles de riego del paso 1
 	$arrNivelesRP1 = array();
@@ -725,15 +679,7 @@ function SetPaso2SRA(){
 		array_push($arrPMP, $strPlanPrev . " <br> " . $strPlanMit);
 	}
 
-	/*
-<tr>
-    <td class="tg-hgcj">Amenaza 1</td>
-    <td class="tg-f062">CRITICO<br></td>
-    <td class="tg-031e">Maecenas luctus nec ante nec vulputate. Integer et euismod arcu. Curabitur volutpat mauris ac magna tincidunt, vel egestas dui tempus. Curabitur tristique turpis egestas justo dapibus volutpat. Nullam ac sollicitudin odio. Aliquam vulputate mauris vehicula tellus viverra lobortis ac in risus. Donec volutpat neque nec rutrum molestie.Fusce viverra consequat ipsum, nec tempor magna pellentesque sit amet. Morbi ex ligula, molestie et risus non, varius cursus erat. Phasellus volutpat tortor enim, id convallis ligula pharetra et. Praesent eu dolor non mi efficitur commodo. Mauris semper sem et bibendum posuere. Duis vulputate nec risus vitae ultrices. Donec mollis euismod nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;Mauris faucibus, nisl vel consequat ullamcorper, diam ex mollis nibh, imperdiet porttitor enim eros ut dui. Curabitur nisl leo, ultricies ac finibus ac, vestibulum id nibh. Suspendisse potenti. Donec sodales ipsum in neque mollis scelerisque. Ut molestie non erat nec feugiat. Nunc ut aliquam nunc. Aenean dictum tempor neque, ut convallis ante accumsan quis. Suspendisse vulputate nisl sed velit viverra pulvinar. Donec non dui magna. Fusce ultricies porta massa ac venenatis. Etiam fermentum luctus cursus. Donec ut orci vel erat dignissim aliquam quis sit amet lorem. Maecenas semper sagittis ipsum sed suscipit. Pellentesque cursus interdum malesuada. Aenean pharetra, metus lobortis tincidunt maximus, erat nunc semper metus, sed suscipit mauris ante vitae sem. Vestibulum nec accumsan lorem.</td>
-    <td class="tg-f062">ALTO</td>
-    <td class="tg-bghc">ACEPTABLE</td>
-  </tr>
-	*/
+	
   $contAm = 0;
   foreach ($arrAmenaza as $amenaza) {
   	$strHtmlTabla2 .= '<tr>';
@@ -759,7 +705,7 @@ function SetPaso2SRA(){
 	//armado de la tabla #4, descripcion operativa del usuario
 
 	$strHtmlTabla4 = '';
-	$strHtmlTabla4 .= '<table class="tg" style="border-collapse:collapse;border-spacing:0;border-color:#ccc;">';
+	$strHtmlTabla4 .= '<table class="tg" style="border-collapse:collapse;border-spacing:0;border-color:#ccc; width: 100%;">';
 	$strHtmlTabla4 .= '	<tr>';
 	$strHtmlTabla4 .= '		<th class="tg-hgcj" style="font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;" colspan="6">Reporte Operativo</th>';
 	$strHtmlTabla4 .= '	</tr>';
